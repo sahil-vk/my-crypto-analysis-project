@@ -1,0 +1,62 @@
+name: Auto Update Realtime + Historical (daily)
+
+on:
+  schedule:
+    - cron: '30 0 * * *'     # Every day at 00:30 UTC
+  workflow_dispatch:          # Allow manual trigger
+
+jobs:
+  update-all:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install requirements
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Create data folders
+        run: mkdir -p data/realtime data/historical
+
+      # ---------------------------------------------------------
+      # 1️⃣ RUN REALTIME SCRAPER FIRST
+      # ---------------------------------------------------------
+      - name: Run realtime scraper
+        run: python scrape_realtime.py
+
+      # ---------------------------------------------------------
+      # 2️⃣ RUN HISTORICAL SCRAPER SECOND
+      # (now uses freshly-created top_10_coins.txt)
+      # ---------------------------------------------------------
+      - name: Run historical scraper
+        run: python scrape_historical.py
+
+      # ---------------------------------------------------------
+      # 3️⃣ COMMIT EVERYTHING AT THE END
+      # ---------------------------------------------------------
+      - name: Commit and push data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Remove old CSVs from repo BEFORE adding new ones
+          git rm -f data/realtime/*.csv || true
+          git rm -f data/historical/*.csv || true
+
+          # Add all fresh data including top_10_coins.txt
+          git add -A
+
+          # Force commit (even if files unchanged)
+          git commit -m "Daily update (realtime + historical): $(date -u +"%Y-%m-%d %H:%M:%S UTC")" --allow-empty
+
+          git push
