@@ -1,8 +1,8 @@
 bitcoin
 ethereum
 tether
-ripple
 binancecoin
+ripple
 usd-coin
 solana
 staked-ether
