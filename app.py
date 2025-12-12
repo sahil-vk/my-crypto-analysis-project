@@ -215,8 +215,10 @@ app.layout = html.Div([
     html.Div([
         html.H2("Ｃｒｙｐｔｏｃｕｒｒｅｎｃｙ　Ｄａｓｈｂｏａｒｄ", className="text-center my-4"),
 
-
-        html.P(f"Last updated: {last_updated.strftime('%Y-%m-%d %H:%M:%S')}", className="text-center text-muted mb-4"),
+        html.P(
+            f"Last updated: {last_updated.strftime('%Y-%m-%d %H:%M:%S')}",
+            className="text-center text-muted mb-4"
+        ),
         kpi_cards,
         html.Div([
             html.Div(id='question-title', className="my-3 text-center h4"),
@@ -229,21 +231,22 @@ app.layout = html.Div([
             dcc.Store(id='slide-index', data=0),
             dcc.Store(id='selected-coin', data='bitcoin'),
         ])
-    ], id="main-content", style={"marginLeft": "270px", "padding": "20px", "transition": "margin-left 0.3s"})
+    ], id="main-content", style={"marginLeft": "270px", "padding": "20px", "transition": "margin-left 0.3s"}),
+
     html.Hr(),
 
-html.Div(
-    "© 2025 Sahil Nechwani. All rights reserved.",
-    style={
-        "textAlign": "center",
-        "fontSize": "12px",
-        "color": "#aaaaaa",
-        "marginTop": "40px",
-        "marginBottom": "10px"
-    }
-)
-
+    html.Div(
+        "© 2025 Sahil Nechwani. All rights reserved.",
+        style={
+            "textAlign": "center",
+            "fontSize": "12px",
+            "color": "#aaaaaa",
+            "marginTop": "40px",
+            "marginBottom": "10px"
+        }
+    )
 ])
+
 
 @app.callback(
     Output('sidebar-toggle', 'data'),
@@ -337,5 +340,6 @@ if __name__ == '__main__':
     import os
     port = int(os.environ.get("PORT", 8050))
     app.run(host="0.0.0.0", port=port, debug=False)
+
 
 
