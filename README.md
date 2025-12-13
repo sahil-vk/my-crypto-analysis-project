@@ -49,7 +49,7 @@ Everything is automated — no manual updates required.
 
 The dashboard is hosted online and always reflects the latest available data.
 
-*(Link can be added here)*
+*https://my-crypto-analysis-project.onrender.com*
 
 ---
 
