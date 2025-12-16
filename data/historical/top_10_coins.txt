@@ -5,6 +5,6 @@ binancecoin
 ripple
 usd-coin
 solana
-staked-ether
 tron
+staked-ether
 dogecoin
