@@ -3,8 +3,8 @@ ethereum
 tether
 binancecoin
 ripple
-usd-coin
 solana
-tron
+usd-coin
 staked-ether
+tron
 dogecoin
