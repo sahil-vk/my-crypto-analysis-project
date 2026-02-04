@@ -6,5 +6,5 @@ ripple
 usd-coin
 solana
 tron
-staked-ether
 dogecoin
+figure-heloc
