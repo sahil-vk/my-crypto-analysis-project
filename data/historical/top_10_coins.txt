@@ -1,8 +1,8 @@
 bitcoin
 ethereum
 tether
-binancecoin
 ripple
+binancecoin
 usd-coin
 solana
 tron
