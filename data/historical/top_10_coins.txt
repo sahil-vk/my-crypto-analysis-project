@@ -6,5 +6,5 @@ binancecoin
 usd-coin
 solana
 tron
-dogecoin
 figure-heloc
+dogecoin
