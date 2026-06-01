@@ -7,4 +7,4 @@ usd-coin
 solana
 tron
 figure-heloc
-dogecoin
+hyperliquid
