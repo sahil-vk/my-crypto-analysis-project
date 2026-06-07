@@ -1,6 +1,6 @@
 bitcoin
-tether
 ethereum
+tether
 binancecoin
 usd-coin
 ripple
