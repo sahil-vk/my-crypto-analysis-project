@@ -2,8 +2,8 @@ bitcoin
 ethereum
 tether
 binancecoin
-ripple
 usd-coin
+ripple
 solana
 tron
 figure-heloc
