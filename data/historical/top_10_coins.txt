@@ -7,4 +7,4 @@ ripple
 solana
 tron
 figure-heloc
-hyperliquid
+whitebit
