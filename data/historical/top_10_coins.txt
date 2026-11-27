@@ -5,6 +5,6 @@ binancecoin
 usd-coin
 ripple
 solana
-tron
 figure-heloc
+tron
 hyperliquid
